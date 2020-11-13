@@ -14,9 +14,13 @@ const server = http
 
     if (req.url === '/logout') {
       res.writeHead(401, {
-        'Content-Type': 'text/plain; charset=utf-8'
+        'Content-Type': 'text/html; charset=utf-8'
       });
-      res.end('ログアウトしました');
+      res.write(
+        pug.renderFile('./logout.pug', {
+        })
+      )
+      res.end();
       return;
     }
 
